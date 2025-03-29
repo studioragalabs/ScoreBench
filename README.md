@@ -17,12 +17,10 @@ Finally, NUMAScoreOpt achieves peak efficiency by adding NUMA-aware memory manag
 
 Collectively, these repositories offer a clear progression from fundamental sequential processing to advanced parallelized, SIMD-accelerated, and NUMA-optimized computations. Each implementation step highlights significant performance improvements, making them ideal for understanding and applying scalable optimization strategies to real-world numerical scoring challenges.
   
-
-
 # Detailing all problem statement
 
- 1. Problem Statement (Description of Baseball Game):
-     -------------------------------------------------
+1. Problem Statement (Description of Baseball Game):
+-------------------------------------------------
 
    You're keeping track of scores during a baseball game. Operations consist of integers or special characters:
 
@@ -34,8 +32,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    After processing all operations, compute and return the total sum of the valid scores.
 
-   Explanation of the Inputs:
-   --------------------------
+Explanation of the Inputs:
+--------------------------
 
    In this program, the inputs are arrays of strings representing operations:
 
@@ -43,8 +41,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    Input Set 2 (ops2): {"5", "-2", "4", "C", "D", "9", "+", "+"}
    Input Set 3 (ops3): {"1"}
 
-   Expected Outputs Explanation:
-   -----------------------------
+Expected Outputs Explanation:
+-----------------------------
 
    Input Set 1: {"5", "2", "C", "D", "+"}
 
@@ -99,9 +97,9 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    The goal is to process a sequence of such operations and compute the final sum of valid scores.
 
 
-   Inputs Explained:
-   ----------------
-   The program contains multiple test cases:
+ Inputs Explained:
+ ----------------
+ The program contains multiple test cases:
 
    {"5", "2", "C", "D", "+"}
 
@@ -119,8 +117,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    Each array of strings represents one sequence of operations.
 
-   Expected Outputs and Explanation:
-   ---------------------------------
+Expected Outputs and Explanation:
+---------------------------------
 
    Test 1: {"5", "2", "C", "D", "+"}
    Operations: [5], [5,2], [5] (C removes 2), [5,10] (D=5×2), [5,10,15] (+=5+10)
@@ -149,23 +147,23 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    Output: 5+10+15+30 = 60
 
 
-   Final Notes on the Code:
-   -----------------------
+Final Notes on the Code:
+-----------------------
 
-   This program efficiently maintains a running sum directly updated after each operation.
-   The complexity is linear (O(n)) where n is the number of operations.
+This program efficiently maintains a running sum directly updated after each operation.
+The complexity is linear (O(n)) where n is the number of operations.
 
-   It clearly demonstrates how string operations are parsed, validated, converted to numbers,
-   and tracked in C.
+It clearly demonstrates how string operations are parsed, validated, converted to numbers,
+and tracked in C.
 
-   Thus, the provided code is a concise and clear implementation to calculate scores for
-   a baseball game as per given rules.
+Thus, the provided code is a concise and clear implementation to calculate scores for
+a baseball game as per given rules.
 
 3. Problem Statement
-   -----------------
-   This program simulates scoring for a baseball game, handling specific operations defined by strings. Each string operation can be:
+-----------------
+This program simulates scoring for a baseball game, handling specific operations defined by strings. Each string operation can be:
 
-   A numeric string (e.g., "5", "-2"): add this integer to the record.
+A numeric string (e.g., "5", "-2"): add this integer to the record.
 
    "+": add a score equal to the sum of the previous two scores.
 
@@ -175,19 +173,19 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    After processing all operations, the goal is to calculate the sum of all valid scores efficiently, leveraging parallel computation with threads.
 
-   Inputs Explained:
-   ----------------
+Inputs Explained:
+----------------
 
-   Example input provided to main() function:
+Example input provided to main() function:
 
    char *ops[] = {"5", "2", "C", "D", "+", "10", "C", "-2", "4", "D", "9", "+", "+"};
 
    This input simulates a series of baseball operations described above.
 
-   Expected Output:
-   ---------------
+Expected Output:
+---------------
 
-   Operations: 5 2 C D + 10 C -2 4 D 9 + +
+Operations: 5 2 C D + 10 C -2 4 D 9 + +
 
    Step-by-step Records:
    - 5        → [5]
@@ -208,18 +206,19 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    Total Sum: 5 + 10 + 15 - 2 + 4 + 8 + 9 + 17 + 26 = **92**
 
-   Performance Note:
-   ----------------
-   The program utilizes pthreads for parallel summation, improving performance in processing large score arrays.
+ Performance Note:
+ ----------------
+ The program utilizes pthreads for parallel summation, improving performance in processing large score arrays.
 
-   The complexity remains O(n), with parallelism providing practical speedup for large datasets.
+ The complexity remains O(n), with parallelism providing practical speedup for large datasets.
 
-   The provided program clearly demonstrates efficient parallel data processing using threads in C
-   to quickly compute baseball game scores based on given operations.
+ The provided program clearly demonstrates efficient parallel data processing using threads in C
+ to quickly compute baseball game scores based on given operations.
 
 4. Problem Statement:
-   The provided C program implements a simulation of baseball scoring rules, efficiently handling
-   a large number of operations. Each operation is a string, interpreted as follows:
+--------------------
+The provided C program implements a simulation of baseball scoring rules, efficiently handling
+a large number of operations. Each operation is a string, interpreted as follows:
 
    Integer ("x"): Record a new score of x points.
 
@@ -232,16 +231,16 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    Given a potentially large set of such operations (up to 1,000,000), the program computes
    the total score efficiently using parallel processing (multi-threading).
 
-   Input Explanation:
-   ------------------
-   The program generates a large number of operations to benchmark performance:
+Input Explanation:
+------------------
+The program generates a large number of operations to benchmark performance:
 
-   generate 1,000,000 operations ("10", "D", "10", "D", ..., repeating 500,000 times).
+Generate 1,000,000 operations ("10", "D", "10", "D", ..., repeating 500,000 times).
 
-   Expected Outputs (Benchmark Results):
-   -------------------------------------
+Expected Outputs (Benchmark Results):
+-------------------------------------
 
-   Operations: "10", "D" repeated 500,000 times.
+Operations: "10", "D" repeated 500,000 times.
 
    Final Scores: Alternating between 10 and double previous repeatedly:
    → 10, 20, 10, 20, ..., repeated 500,000 times.
@@ -257,19 +256,19 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    The multi-threaded execution should be faster, leveraging CPU parallelism.
 
-   Performance Advantage:
-   ---------------------
-   By dividing the summation into parallel tasks, the multi-threaded version significantly
-   reduces computation time, especially with large data sets.
+Performance Advantage:
+---------------------
+By dividing the summation into parallel tasks, the multi-threaded version significantly
+reduces computation time, especially with large data sets.
 
-   This program effectively illustrates parallel computation using pthreads to efficiently
-   handle large-scale data processing, benchmarking clearly the performance advantages
-   of parallel over single-threaded computations in C.
+This program effectively illustrates parallel computation using pthreads to efficiently
+handle large-scale data processing, benchmarking clearly the performance advantages
+of parallel over single-threaded computations in C.
 
-5.  Problem Statement:
- * ------------------
-   The provided C program efficiently computes the total score for a baseball game simulation.
-   It interprets an array of string operations with the following rules:
+6.  Problem Statement:
+------------------
+The provided C program efficiently computes the total score for a baseball game simulation.
+It interprets an array of string operations with the following rules:
 
    Numeric String ("10", "-5", etc.):** Adds the number as a score.
 
@@ -282,15 +281,15 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    Given potentially 1,000,000 operations, the program calculates the total efficiently using
    parallelism (multi-threading) and vectorized SIMD instructions (AVX).
 
-   Input Explained:
-   ----------------
-   The program generates a large test case with 1,000,000 operations:
+ Input Explained:
+ ----------------
+ The program generates a large test case with 1,000,000 operations:
 
    Operations generated: "10", "D", "10", "D", ... repeated 500,000 times.
 
-   Expected Output (Benchmark Result):
-   -----------------------------------
-   Step-by-step Calculation:
+ Expected Output (Benchmark Result):
+ -----------------------------------
+ Step-by-step Calculation:
 
    Operations: "10", "D" repeated 500,000 times.
 
@@ -307,8 +306,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    [time_ms] will reflect execution time (fast due to SIMD parallelism).
 
 
-   Performance Considerations:
-   ---------------------------
+ Performance Considerations:
+ ---------------------------
    Multi-threading reduces overall execution time by splitting work across CPU cores.
 
    AVX SIMD provides vectorized computation, summing multiple integers simultaneously in
@@ -320,15 +319,16 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    dramatically accelerating large-scale numeric computations for real-world scenarios like this
    baseball scoring system.
 
-   My CPU supports:
-
-   gcc -mavx2 -pthread -O3 5.baseball_parallel_optimization_simd_avx_sse.c -o baseball_simd
+ My CPU supports:
+ ----------------
+ gcc -mavx2 -pthread -O3 5.baseball_parallel_optimization_simd_avx_sse.c -o baseball_simd
 
 6. Optimizing Multi-threaded SIMD for NUMA (Non-Uniform Memory Access)
+----------------------------------------------------------------------
 
-   Why Optimize for NUMA?
+Why Optimize for NUMA?
 
-   Most modern multi-core CPUs are NUMA-based (Non-Uniform Memory Access). In a NUMA system:
+Most modern multi-core CPUs are NUMA-based (Non-Uniform Memory Access). In a NUMA system:
 
    Each CPU core has its own memory node (NUMA node).
 
@@ -344,8 +344,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    Memory interleaving inefficiencies → Poor memory bandwidth utilization.
 
-   NUMA Optimization Goals
-   -----------------------
+NUMA Optimization Goals
+-----------------------
    - Ensure each thread accesses memory from its local NUMA node.
    - Reduce unnecessary memory transfers across NUMA nodes.
    - Utilize NUMA-aware memory allocation strategies.
@@ -353,10 +353,10 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    #sudo apt-get install numactl libnuma-dev
    #gcc -mavx2 -pthread -O3 10.baseball_optimizing_multithreaded_simd_for_numa.c -lnuma -o baseball_simd_numa
 
-   Problem Statement
-   -----------------
+Problem Statement
+-----------------
 
-   This C program computes the total score of a baseball game, efficiently handling a large number of scoring operations with advanced optimizations:
+This C program computes the total score of a baseball game, efficiently handling a large number of scoring operations with advanced optimizations:
 
    Numeric strings ("10", "-2") represent adding the given score.
 
@@ -366,18 +366,18 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    "C" removes the previous score.
 
-   The program is optimized for handling 1,000,000 operations using:
+The program is optimized for handling 1,000,000 operations using:
    - Parallel processing (multi-threading)
    - SIMD vectorization (AVX)
    - NUMA-awareness (memory and CPU affinity optimization)
 
-   Input Explained
-   ----------------
+Input Explained
+----------------
    Generate large test input (1,000,000 operations):
    - Input pattern: "10", "D", "10", "D", ... repeated 500,000 times.
 
-   1. NUMA Hardware Check: #
-   -----------------------
+1. NUMA Hardware Check:
+-----------------------
    available: 1 nodes (0)
    node 0 cpus: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
    node 0 size: 23889 MB
@@ -395,8 +395,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
 
    Conclusion: This confirms your system is a single-node NUMA system, effectively a non-NUMA configuration.
 
-   2.Benchmarking Results with Explicit Binding (numactl --membind=0):
-   ------------------------------------------------------------------
+2.Benchmarking Results with Explicit Binding (numactl --membind=0):
+------------------------------------------------------------------
    Running benchmark without NUMA-awareness:
    Non-NUMA Execution: 7 ms, Result: 5000000
 
@@ -404,8 +404,8 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    NUMA-Aware Execution (Node 0 preferred): 4 ms, Result: 5000000
    Memory allowed on nodes: 0
 
-   Observations:
-   ------------
+Observations:
+------------
    - Execution without NUMA-awareness took 7 ms.
    - Explicit NUMA-aware execution was faster at 4 ms.
    - Results (5000000) match exactly, validating correctness.
@@ -425,7 +425,7 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    node   0
    0:  10
 
-   srrmk@mars:~/MyWorkSpace/turing-code$ numactl --membind=0 ./baseball_simd_numa
+srrmk@mars:~/MyWorkSpace/turing-code$ numactl --membind=0 ./baseball_simd_numa
    Running benchmark without NUMA-awareness:
    Non-NUMA Execution: 7 ms, Result: 5000000
 
@@ -434,29 +434,28 @@ Collectively, these repositories offer a clear progression from fundamental sequ
    Memory allowed on nodes: 0
    srrmk@mars:~/MyWorkSpace/turing-code$
 
-   EXAMPLES
-       numactl --physcpubind=+0-4,8-12 myapplic arguments Run myapplic on cpus 0-4 and 8-12 of the current cpuset.
+EXAMPLES
+   numactl --physcpubind=+0-4,8-12 myapplic arguments Run myapplic on cpus 0-4 and 8-12 of the current cpuset.
 
-       numactl --interleave=all bigdatabase arguments Run big database with its memory interleaved on all CPUs.
+   numactl --interleave=all bigdatabase arguments Run big database with its memory interleaved on all CPUs.
 
-       numactl --cpunodebind=0 --membind=0,1 process Run process on node 0 with memory allocated on node 0 and 1.
+   numactl --cpunodebind=0 --membind=0,1 process Run process on node 0 with memory allocated on node 0 and 1.
 
-       numactl --cpunodebind=0 --membind=0,1 -- process -l Run process as above, but with an option (-l) that would be confused with a numactl option.
+   numactl --cpunodebind=0 --membind=0,1 -- process -l Run process as above, but with an option (-l) that would be confused with a numactl option.
 
-       numactl --cpunodebind=0 --balancing --membind=0,1 process Run process on node 0 with memory allocated on node 0 and 1.  Optimize the page placement with Linux kernel NUMA  balancing  mechanism  if
-       possible.
+   numactl --cpunodebind=0 --balancing --membind=0,1 process Run process on node 0 with memory allocated on node 0 and 1.  Optimize the page placement with Linux kernel NUMA  balancing  mechanism  if
+   possible.
 
-       numactl --cpunodebind=netdev:eth0 --membind=netdev:eth0 network-server Run network-server on the node of network device eth0 with its memory also in the same node.
+   numactl --cpunodebind=netdev:eth0 --membind=netdev:eth0 network-server Run network-server on the node of network device eth0 with its memory also in the same node.
 
-       numactl --preferred=1 numactl --show Set preferred node 1 and show the resulting state.
+   numactl --preferred=1 numactl --show Set preferred node 1 and show the resulting state.
 
-       numactl --preferred-many=0x3 numactl --show Set preferred nodes 1 and 2, and show the resulting state.
+   numactl --preferred-many=0x3 numactl --show Set preferred nodes 1 and 2, and show the resulting state.
 
-       numactl --length 1g --shm /tmp/shmkey --interleave=all Interleave all of the sysv shared memory region of size 1g specified by /tmp/shmkey over all nodes.
+   numactl --length 1g --shm /tmp/shmkey --interleave=all Interleave all of the sysv shared memory region of size 1g specified by /tmp/shmkey over all nodes.
 
-       Place a tmpfs file on 2 nodes:
-         numactl --membind=2 dd if=/dev/zero of=/dev/shm/A bs=1M count=1024
-         numactl --membind=3 dd if=/dev/zero of=/dev/shm/A seek=1024 bs=1M count=1024
-
-       numactl --localalloc /dev/shm/file Reset the policy for the shared memory file file to the default localalloc policy.
+   Place a tmpfs file on 2 nodes:
+   numactl --membind=2 dd if=/dev/zero of=/dev/shm/A bs=1M count=1024
+   numactl --membind=3 dd if=/dev/zero of=/dev/shm/A seek=1024 bs=1M count=1024
+   numactl --localalloc /dev/shm/file Reset the policy for the shared memory file file to the default localalloc policy.
 
