@@ -1,10 +1,23 @@
 # ScoreBench
-  Repos illustrate baseball scoring optimizations: from 
-  simple parsing (ScoreKeeper), 
-  flexible test cases (BaseballScorer), 
-  pthread multi-threading (ThreadedScorer, ScoreBench), 
-  SIMD acceleration (SimdScoreFast), to 
-  NUMA-aware performance (NUMAScoreOpt).
+  Repos illustrate baseball scoring optimizations: from simple parsing (ScoreKeeper),
+  flexible test cases (BaseballScorer), pthread multi-threading (ThreadedScorer, ScoreBench), 
+  SIMD acceleration (SimdScoreFast), to NUMA-aware performance (NUMAScoreOpt).
+
+  The provided repositories illustrate increasingly sophisticated methods for calculating and optimizing baseball game scores from parsed operations. Starting with ScoreKeeper, the simplest implementation, the program processes integers and special operations ('+', 'D', 'C') to handle score additions, cancellations, summations, and doublings. It clearly demonstrates basic sequential parsing logic.
+
+BaseballScorer builds upon this by incorporating multiple test cases that showcase a variety of operational scenarios, efficiently updating a running total to reflect different combinations of scoring actions. This illustrates flexibility and adaptability to diverse scoring inputs.
+
+Advancing further, ThreadedScorer employs multi-threading using pthreads, improving performance significantly, especially for larger datasets. By parallelizing the score calculations, this implementation reduces computation time, demonstrating the practical advantages of concurrency in numerical computations.
+
+Next, ScoreBench benchmarks the efficiency gains from multi-threading by comparing single-threaded and multi-threaded executions explicitly. Designed to handle extensive operations (up to one million entries), it clearly demonstrates performance improvements gained through parallel processing.
+
+SimdScoreFast takes optimization further by integrating SIMD vectorization (using AVX instructions) with multi-threading. This combination greatly accelerates computation by processing multiple numerical values simultaneously, drastically reducing processing time compared to prior implementations.
+
+Finally, NUMAScoreOpt achieves peak efficiency by adding NUMA-aware memory management to multi-threaded SIMD computations. Specifically optimized for single-node NUMA systems, it reduces latency by enhancing memory locality and affinity, further increasing computational speed. Even in systems without distinct NUMA nodes, explicit NUMA-awareness provides measurable performance gains.
+
+Collectively, these repositories offer a clear progression from fundamental sequential processing to advanced parallelized, SIMD-accelerated, and NUMA-optimized computations. Each implementation step highlights significant performance improvements, making them ideal for understanding and applying scalable optimization strategies to real-world numerical scoring challenges.
+  
+
 
 # Detailing all problem statement
 
